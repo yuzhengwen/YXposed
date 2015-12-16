@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">YXposed</string>
+    <string name="amToClock">Show AM/PM</string>
+    <string name="amToClockSummary">Adds AM/PM to clock</string>
+    <string name="statusbar">Status Bar Settings</string>
+    <string name="statusbarSummary">Many tweaks to status bar like clock, date etc</string>
+    <string name="settings">YXposed Settings</string>
+    <string name="clockShowDay">Show Day</string>
+    <string name="clockShowDaySummary">Show day in front of clock, eg. Wed</string>
+
+</resources>
