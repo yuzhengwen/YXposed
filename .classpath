@@ -6,5 +6,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="lib" path="XposedBridgeApi-20150213.jar"/>
+	<classpathentry kind="lib" path="lib/SystemUI-dex2jar.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

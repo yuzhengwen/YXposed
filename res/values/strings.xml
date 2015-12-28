@@ -1,6 +1,10 @@
 <resources>
 
     <string name="app_name">YXposed</string>
+    
+	<string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color to apply</string>
+    
     <string name="amToClock">Show AM/PM</string>
     <string name="amToClockSummary">Adds AM/PM to clock</string>
     <string name="statusbar">Status Bar Settings</string>
@@ -8,5 +12,40 @@
     <string name="settings">YXposed Settings</string>
     <string name="clockShowDay">Show Day</string>
     <string name="clockShowDaySummary">Show day in front of clock, eg. Wed</string>
+    <string name="clockShow">Show Clock</string>
+    <string name="clockShowSummary">Show clock</string>
+    <string name="clock_align">Clock Align</string>
+    <string name="clock_align_summary">Center, Left, or Right</string>
+    <string name="clockColor">Clock Color</string>
+    <string name="clockColorSummary">Change Clock Color</string>
+    <string name="showTicker">Show Notification Ticker</string>
+    <string name="showTickerSummary">Show notification ticker</string>
+    
+    <string name="quicksettings_column_no">Quick Settings Column No</string>
+    <string name="quicksettings_column_no_summary">No of icons in a row in quick settings</string>
+    <string name="status_bar_header_color">Status Bar Header Color</string>
+    <string name="status_bar_header_color_summary">Change color of status bar header</string>
+    
+    <string name="oneHandedMode">One Handed Mode</string>
+    <string name="oneHandedModeSummary">Moves screen down for accesibility</string>
+    
+    <string name="recents">Recent Panel Settings</string>
+    <string name="recentsSummary">Many tweaks for Recents View/Task Switcher</string>
+    <string name="showCloseAllButton">Show Close All Button in Recents View</string>
+    <string name="showCloseAllButtonSummary">Show button in recents at bottom right which will close all tasks</string>
+    
+    <string name="navbar">Navigation Bar Settings</string>
+    <string name="navbarSummary">Many tweaks for navigation bar and keys</string>
+    <string name="menuAlwaysShow">Always Show Menu Key</string>
+    <string name="menuAlwaysShowSummary">Persistent Menu Key</string>
+    
+    <string name="misc">Miscellaneous Settings</string>
+    <string name="miscSummary">Many misc tweaks for framework, SystemUI, etc</string>
+    <string name="wakeUpWhenUnplugged">Wake When Unplugged</string>
+    <string name="wakeUpWhenUnpluggedSummary">Wake the phone up whenever it is unplugged from charger/USB</string>
+    
+    <string name="statusbarHeader">Status Bar Header Settings</string>
+    <string name="statusbarHeaderSummary">Many tweaks Status Bar Header</string>
+    <string name="showDataSwitch">Show Data Switch</string>
 
 </resources>

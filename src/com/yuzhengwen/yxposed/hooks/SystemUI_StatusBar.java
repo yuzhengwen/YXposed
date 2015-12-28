@@ -8,6 +8,7 @@ import java.util.Date;
 import com.yuzhengwen.yxposed.SettingsFragment;
 import com.yuzhengwen.yxposed.Xposed;
 
+import android.view.View;
 import android.widget.TextView;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
@@ -15,7 +16,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 public class SystemUI_StatusBar {
 
-	private static boolean amToClock, clockShowDay;
+	private static boolean amToClock, clockShowDay, clockShow;
 
 	public static void hook(LoadPackageParam lpparam) {
 		try {
@@ -32,18 +33,22 @@ public class SystemUI_StatusBar {
 						@Override
 						protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 							TextView tv = (TextView) param.thisObject;
-							StringBuffer clock = new StringBuffer("");
-							SimpleDateFormat format = new SimpleDateFormat("h:MM");
-							clock.append(format.format(new Date()));
-							if (amToClock) {
-								SimpleDateFormat am = new SimpleDateFormat("a");
-								clock.append(am.format(new Date()));
+							if (!clockShow)
+								tv.setVisibility(View.GONE);
+							else {
+								StringBuffer clock = new StringBuffer("");
+								SimpleDateFormat format = new SimpleDateFormat("h:mm");
+								clock.append(format.format(new Date()));
+								if (amToClock) {
+									SimpleDateFormat am = new SimpleDateFormat("a");
+									clock.append(am.format(new Date()));
+								}
+								if (clockShowDay) {
+									SimpleDateFormat day = new SimpleDateFormat("EEE");
+									clock.insert(0, day.format(new Date()) + ", ");
+								}
+								tv.setText(clock);
 							}
-							if (clockShowDay) {
-								SimpleDateFormat day = new SimpleDateFormat("EEE");
-								clock.insert(0, day.format(new Date()) + ", ");
-							}
-							tv.setText(clock);
 						}
 					});
 		} catch (Exception e) {
@@ -52,6 +57,8 @@ public class SystemUI_StatusBar {
 	}
 
 	public static void updatePreferences() {
+		clockShow = Xposed.mXSharedPreferences.getBoolean(SettingsFragment.CLOCK_SHOW_KEY,
+				SettingsFragment.CLOCK_SHOW_DEFAULT);
 		amToClock = Xposed.mXSharedPreferences.getBoolean(SettingsFragment.AM_TO_CLOCK_KEY,
 				SettingsFragment.AM_TO_CLOCK_DEFAULT);
 		clockShowDay = Xposed.mXSharedPreferences.getBoolean(SettingsFragment.CLOCK_SHOW_DAY_KEY,

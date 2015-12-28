@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="quicksetting_column_no">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
     <string-array name="colors">
         <item>Default</item>
         <item>Blue</item>
@@ -7,4 +14,11 @@
         <item>Red</item>
         <item>Green</item>
     </string-array>
+    
+    <string-array name="clockGravity">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+    </string-array>
+
 </resources>
