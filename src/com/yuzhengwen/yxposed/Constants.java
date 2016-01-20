@@ -18,7 +18,6 @@ public interface Constants {
 	// status bar header------------------------
 	public static String QUICKSETTINGS_COLUMN_NO_DEFAULT = "3";
 	public static String QUICKSETTINGS_COLUMN_NO_KEY = "quickSettingsColumnNo";
-	public static String SHOW_DATA_SWITCH_KEY = "showDataSwitch";
 	public static String STATUS_BAR_HEADER_COLOR_KEY = "statusBarHeaderColor";
 	public static String QUICKSETTINGS_BACKGROUND_COLOR_KEY = "quickSettingsBackgroundColor";
 

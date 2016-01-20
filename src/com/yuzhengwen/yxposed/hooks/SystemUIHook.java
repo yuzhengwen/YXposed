@@ -3,7 +3,6 @@ package com.yuzhengwen.yxposed.hooks;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.android.systemui.statusbar.policy.KeyButtonView;
 import com.yuzhengwen.yxposed.Constants;
 import com.yuzhengwen.yxposed.SettingsFragment;
 import com.yuzhengwen.yxposed.Xposed;
@@ -20,7 +19,6 @@ import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam;
-import de.robv.android.xposed.callbacks.XC_LayoutInflated;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 public class SystemUIHook implements Constants {
@@ -31,7 +29,6 @@ public class SystemUIHook implements Constants {
 
 	// status bar header
 	private static int quickSettingsColumnNo, statusBarHeaderColor, quickSettingsBackgroundColor;
-	private static boolean showDataSwitch;
 
 	// recents
 	private static boolean showCloseAllButton;
@@ -56,13 +53,6 @@ public class SystemUIHook implements Constants {
 			// status bar
 			XposedHelpers.findAndHookMethod("com.android.systemui.statusbar.policy.Clock", lpparam.classLoader,
 					"updateClock", new XC_MethodHook() {
-
-						@Override
-						protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-							// TODO Auto-generated method stub
-							super.beforeHookedMethod(param);
-						}
-
 						@Override
 						protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 							TextView tv = (TextView) param.thisObject;
@@ -137,7 +127,6 @@ public class SystemUIHook implements Constants {
 
 		// status bar header
 		resparam.res.setReplacement(SYSTEMUI_PKG_NAME, "integer", "quick_settings_num_columns", quickSettingsColumnNo);
-		resparam.res.setReplacement(SYSTEMUI_PKG_NAME, "bool", "config_enableDataSwitch", showDataSwitch);
 		resparam.res.setReplacement(SYSTEMUI_PKG_NAME, "color", "system_primary_color", quickSettingsBackgroundColor);
 		resparam.res.setReplacement(SYSTEMUI_PKG_NAME, "drawable", "notification_header_bg",
 				new XResources.DrawableLoader() {
@@ -156,14 +145,14 @@ public class SystemUIHook implements Constants {
 		resparam.res.setReplacement(SYSTEMUI_PKG_NAME, "bool", "config_enableCloseAllButton", showCloseAllButton);
 
 		// nav
-		resparam.res.hookLayout(SYSTEMUI_PKG_NAME, "layout", "navigation_bar", new XC_LayoutInflated() {
+		/*resparam.res.hookLayout(SYSTEMUI_PKG_NAME, "layout", "navigation_bar", new XC_LayoutInflated() {
 			@Override
 			public void handleLayoutInflated(LayoutInflatedParam liparam) throws Throwable {
 				KeyButtonView menu = (KeyButtonView) liparam.view
 						.findViewById(liparam.res.getIdentifier("menu", "id", SYSTEMUI_PKG_NAME));
 				menu.setVisibility(View.VISIBLE);
 			}
-		});
+		});*/
 
 		// misc
 		if (enableAmbientDisplay) {
@@ -185,7 +174,6 @@ public class SystemUIHook implements Constants {
 
 		// status bar header
 		quickSettingsColumnNo = Integer.parseInt(p.getString(QUICKSETTINGS_COLUMN_NO_KEY, "3"));
-		showDataSwitch = p.getBoolean(SHOW_DATA_SWITCH_KEY, true);
 		statusBarHeaderColor = p.getInt(STATUS_BAR_HEADER_COLOR_KEY, SettingsFragment.STATUS_BAR_HEADER_COLOR_DEFAULT);
 		quickSettingsBackgroundColor = p.getInt(QUICKSETTINGS_BACKGROUND_COLOR_KEY,
 				SettingsFragment.QUICKSETTINGS_BACKGROUND_COLOR_DEFAULT);

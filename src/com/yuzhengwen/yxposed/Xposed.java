@@ -27,7 +27,6 @@ public class Xposed implements IXposedHookLoadPackage, IXposedHookZygoteInit, IX
 	@Override
 	public void initZygote(StartupParam startupParam) throws Throwable {
 		mXSharedPreferences = new XSharedPreferences(FILE_NAME);
-
 		MODULE_PATH = startupParam.modulePath;
 	}
 
