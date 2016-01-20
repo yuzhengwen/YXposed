@@ -25,6 +25,13 @@
     <string name="quicksettings_column_no_summary">No of icons in a row in quick settings</string>
     <string name="status_bar_header_color">Status Bar Header Color</string>
     <string name="status_bar_header_color_summary">Change color of status bar header</string>
+    <string name="quick_settings_background_color">Quick Settings BG Color</string>
+    <string name="quick_settings_background_color_summary">Change color of quick settings bg</string>
+    
+    <string name="notification">Notification Settings</string>
+    <string name="notification_summary">Notification Configurations</string>
+    <string name="notification_min_height">Notification Height</string>
+    <string name="notification_min_height_summary">Change notification height</string>
     
     <string name="oneHandedMode">One Handed Mode</string>
     <string name="oneHandedModeSummary">Moves screen down for accesibility</string>
@@ -38,14 +45,37 @@
     <string name="navbarSummary">Many tweaks for navigation bar and keys</string>
     <string name="menuAlwaysShow">Always Show Menu Key</string>
     <string name="menuAlwaysShowSummary">Persistent Menu Key</string>
+    <string name="disableSwipe">Disable Swipe</string>
+    <string name="disableSwipeSummary">Disable swipe up gestures</string>
+    
+    <string name="lockscreen">Lockscreen Settings</string>
+    <string name="lockscreenSummary">Tweaks for the Lockscreen</string>
+    <string name="showAlbumArt">Show Album Art</string>
+    <string name="showAlbumArtSummary">Show Music ALbum Art on Lockscreen</string>
     
     <string name="misc">Miscellaneous Settings</string>
     <string name="miscSummary">Many misc tweaks for framework, SystemUI, etc</string>
     <string name="wakeUpWhenUnplugged">Wake When Unplugged</string>
     <string name="wakeUpWhenUnpluggedSummary">Wake the phone up whenever it is unplugged from charger/USB</string>
+    <string name="enableAmbientDisplay">Ambient Display</string>
+    <string name="enableAmbientDisplaySummary">Pulse when receive notification</string>
     
     <string name="statusbarHeader">Status Bar Header Settings</string>
     <string name="statusbarHeaderSummary">Many tweaks Status Bar Header</string>
     <string name="showDataSwitch">Show Data Switch</string>
+    
+    
+    <!-- Animation scales -->
+    <string name="animation_scale0">Animation off</string>
+    <string name="animation_scale1">Animation scale .25x</string>
+    <string name="animation_scale2">Animation scale .5x</string>
+    <string name="animation_scale3">Animation scale 1x</string>
+    <string name="animation_scale4">Animation scale 1.5x</string>
+    <string name="animation_scale5">Animation scale 2x</string>
+    <string name="animation_scale6">Animation scale 5x</string>
+    <string name="animation_scale7">Animation scale 10x</string>
+    <string name="animation_scale8">Animation scale .75x</string>
+    <string name="animation_scale9">Animation scale 1.25x</string>
+    
 
 </resources>

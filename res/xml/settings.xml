@@ -22,26 +22,28 @@
                 android:key="clockShowDay"
                 android:summary="@string/clockShowDaySummary"
                 android:title="@string/clockShowDay" />
+
             <ListPreference
                 android:entries="@array/clockGravity"
                 android:entryValues="@array/clockGravity"
                 android:key="clockGravity"
                 android:summary="@string/clock_align_summary"
                 android:title="@string/clock_align" />
+
             <net.margaritov.preference.colorpicker.ColorPickerPreference
-			    android:key="clockColor"
-			    android:title="@string/clockColor"
-			    android:summary="@string/clockColorSummary"
-			    android:defaultValue="@color/clockColorDefault"  
-			    alphaSlider="true"                           
-			/>
+                alphaSlider="true"
+                android:defaultValue="@color/clockColorDefault"
+                android:key="clockColor"
+                android:summary="@string/clockColorSummary"
+                android:title="@string/clockColor" />
+
             <CheckBoxPreference
                 android:defaultValue="true"
                 android:key="showTicker"
                 android:summary="@string/showTicker"
                 android:title="@string/showTickerSummary" />
         </PreferenceScreen>
-        
+
         <!-- Status Bar Header -->
         <PreferenceScreen
             android:summary="@string/statusbarHeaderSummary"
@@ -52,18 +54,38 @@
                 android:key="quickSettingsColumnNo"
                 android:summary="@string/quicksettings_column_no_summary"
                 android:title="@string/quicksettings_column_no" />
+
             <CheckBoxPreference
                 android:defaultValue="true"
                 android:key="showDataSwitch"
                 android:title="@string/showDataSwitch" />
+
             <net.margaritov.preference.colorpicker.ColorPickerPreference
-			    android:key="statusBarHeaderColor"
-			    android:title="@string/status_bar_header_color"
-			    android:summary="@string/status_bar_header_color_summary"
-			    android:defaultValue="@color/statusBarHeaderColorDefault"  
-			    alphaSlider="true"/>
+                alphaSlider="true"
+                android:defaultValue="@color/statusBarHeaderColorDefault"
+                android:key="statusBarHeaderColor"
+                android:summary="@string/status_bar_header_color_summary"
+                android:title="@string/status_bar_header_color" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/quickSettingsBackgroundColorDefault"
+                android:key="quickSettingsBackgroundColor"
+                android:summary="@string/quick_settings_background_color_summary"
+                android:title="@string/quick_settings_background_color" />
         </PreferenceScreen>
-        
+
+        <!-- Notifications -->
+        <PreferenceScreen
+            android:summary="@string/notification_summary"
+            android:title="@string/notification" >
+            <ListPreference
+                android:entries="@array/notificationMinHeight"
+                android:entryValues="@array/notificationMinHeightValues"
+                android:key="notificationMinHeight"
+                android:summary="@string/notification_min_height_summary"
+                android:title="@string/notification_min_height" />
+        </PreferenceScreen>
+
         <!-- Recents -->
         <PreferenceScreen
             android:summary="@string/recentsSummary"
@@ -74,7 +96,7 @@
                 android:summary="@string/showCloseAllButtonSummary"
                 android:title="@string/showCloseAllButton" />
         </PreferenceScreen>
-        
+
         <!-- Nav Bar -->
         <PreferenceScreen
             android:summary="@string/navbarSummary"
@@ -84,8 +106,25 @@
                 android:key="menuAlwaysShow"
                 android:summary="@string/menuAlwaysShowSummary"
                 android:title="@string/menuAlwaysShow" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="disableSwipe"
+                android:summary="@string/disableSwipeSummary"
+                android:title="@string/disableSwipe" />
         </PreferenceScreen>
-        
+
+        <!-- Lockscreen -->
+        <PreferenceScreen
+            android:summary="@string/lockscreenSummary"
+            android:title="@string/lockscreen" >
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="showAlbumArt"
+                android:summary="@string/showAlbumArtSummary"
+                android:title="@string/showAlbumArt" />
+            
+        </PreferenceScreen>
+
         <!-- Misc -->
         <PreferenceScreen
             android:summary="@string/miscSummary"
@@ -95,6 +134,11 @@
                 android:key="wakeUpWhenUnplugged"
                 android:summary="@string/wakeUpWhenUnpluggedSummary"
                 android:title="@string/wakeUpWhenUnplugged" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="enableAmbientDisplay"
+                android:summary="@string/enableAmbientDisplaySummary"
+                android:title="@string/enableAmbientDisplay" />
         </PreferenceScreen>
 
         <SwitchPreference
@@ -102,6 +146,7 @@
             android:defaultValue="false"
             android:summary="@string/oneHandedModeSummary"
             android:title="@string/oneHandedMode" />
+            
     </PreferenceCategory>
 
 </PreferenceScreen>

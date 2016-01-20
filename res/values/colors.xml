@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary">#1C7558</color>
+    <color name="primary_dark">#12543E</color>
+    <color name="accent">#D94E38</color>
 
     <color name="clockColorDefault">#ffffff</color>
-    <color name="system_secondary_color">#ff384248</color>
-    <color name="statusBarHeaderColorDefault">#ff384248</color>
+    <color name="statusBarHeaderColorDefault">#ff223141</color>
+    <color name="quickSettingsBackgroundColorDefault">#ff263238</color>
 
 </resources>

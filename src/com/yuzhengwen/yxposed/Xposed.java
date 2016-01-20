@@ -1,12 +1,14 @@
 package com.yuzhengwen.yxposed;
 
-import com.yuzhengwen.yxposed.hooks.SystemUI_NavBar;
-import com.yuzhengwen.yxposed.hooks.SystemUI_StatusBar;
+import com.yuzhengwen.yxposed.hooks.AndroidHook;
+import com.yuzhengwen.yxposed.hooks.SettingsHook;
+import com.yuzhengwen.yxposed.hooks.SystemUIHook;
 
 import android.content.res.XModuleResources;
 import de.robv.android.xposed.IXposedHookInitPackageResources;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
+import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam;
@@ -15,8 +17,12 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class Xposed implements IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookInitPackageResources {
 
 	public static XSharedPreferences mXSharedPreferences;
-	public static String FILE_NAME = "com.yuzhengwen.yxposed";
+	public static final String FILE_NAME = "com.yuzhengwen.yxposed";
 	private String MODULE_PATH;
+
+	public final static String SYSTEMUI_PKG_NAME = "com.android.systemui";
+	public final static String SETTINGS_PKG_NAME = "com.android.settings";
+	public final static String ANDROID_PKG_NAME = "android";
 
 	@Override
 	public void initZygote(StartupParam startupParam) throws Throwable {
@@ -27,15 +33,20 @@ public class Xposed implements IXposedHookLoadPackage, IXposedHookZygoteInit, IX
 
 	@Override
 	public void handleLoadPackage(LoadPackageParam lpparam) throws Throwable {
-		if (!lpparam.packageName.equals("com.android.systemui"))
-			return;
-
 		setParentClassLoaders(lpparam);
-
 		mXSharedPreferences.reload();
 
-		SystemUI_StatusBar.hook(lpparam);
-		SystemUI_NavBar.hook(lpparam);
+		if (lpparam.packageName.equals(SYSTEMUI_PKG_NAME)) {
+			XposedHelpers.findAndHookMethod("com.android.systemui.statusbar.phone.PhoneStatusBar", lpparam.classLoader,
+					"shouldDisableNavbarGestures", new XC_MethodHook() {
+						@Override
+						protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+							param.setResult(true);
+						}
+					});
+
+			SystemUIHook.hook(lpparam);
+		}
 	}
 
 	private void setParentClassLoaders(LoadPackageParam lpparam) throws Throwable {
@@ -57,10 +68,11 @@ public class Xposed implements IXposedHookLoadPackage, IXposedHookZygoteInit, IX
 	public void handleInitPackageResources(InitPackageResourcesParam resparam) throws Throwable {
 		mXSharedPreferences.reload();
 		XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
-		if (resparam.packageName.equals("android")) {
-			ResourceHook.hookResources(resparam, modRes);
-		}
-		if (resparam.packageName.equals("com.android.systemui"))
-			SystemUIResourceHook.hook(resparam, modRes);
+		if (resparam.packageName.equals(ANDROID_PKG_NAME))
+			AndroidHook.hookResources(resparam, modRes);
+		if (resparam.packageName.equals(SYSTEMUI_PKG_NAME))
+			SystemUIHook.hookResources(resparam, modRes);
+		if (resparam.packageName.equals(SETTINGS_PKG_NAME))
+			SettingsHook.hookResources(resparam, modRes);
 	}
 }

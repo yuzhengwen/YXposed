@@ -9,7 +9,7 @@ import android.os.Bundle;
 public class MainActivity extends Activity {
 
 	public static String SYSTEM_UI_PACKAGE_NAME = "com.android.systemui";
-    protected DataOutputStream dos;
+	protected DataOutputStream dos;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

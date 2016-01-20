@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="quicksetting_column_no">
         <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
     </string-array>
-
     <string-array name="colors">
         <item>Default</item>
         <item>Blue</item>
@@ -14,11 +14,105 @@
         <item>Red</item>
         <item>Green</item>
     </string-array>
-    
     <string-array name="clockGravity">
         <item>Left</item>
         <item>Center</item>
         <item>Right</item>
+    </string-array>
+    <string-array name="notificationMinHeight">
+        <item>40dip</item>
+        <item>50dip</item>
+        <item>64dip (stock)</item>
+    </string-array>
+
+    <array name="notificationMinHeightValues">
+        <item name="notification_min_height_40" type="dimens">40.0dip</item>
+        <item name="notification_min_height_50" type="dimens">50.0dip</item>
+        <item name="notification_min_height_64" type="dimens">64.0dip</item>
+    </array>
+
+    <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
+    <string-array name="window_animation_scale_entries" translatable="false">
+        <item>@string/animation_scale0</item>
+        <item>@string/animation_scale1</item>
+        <item>@string/animation_scale2</item>
+        <item>@string/animation_scale8</item>
+        <item>@string/animation_scale3</item>
+        <item>@string/animation_scale9</item>
+        <item>@string/animation_scale4</item>
+        <item>@string/animation_scale5</item>
+        <item>@string/animation_scale6</item>
+        <item>@string/animation_scale7</item>
+    </string-array>
+
+    <!-- Values for window animation scale preference. -->
+    <string-array name="window_animation_scale_values" translatable="false">
+        <item>0</item>
+        <item>.25</item>
+        <item>.5</item>
+        <item>.75</item>
+        <item>1</item>
+        <item>1.25</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+
+    <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
+    <string-array name="transition_animation_scale_entries" translatable="false">
+        <item>@string/animation_scale0</item>
+        <item>@string/animation_scale1</item>
+        <item>@string/animation_scale2</item>
+        <item>@string/animation_scale8</item>
+        <item>@string/animation_scale3</item>
+        <item>@string/animation_scale9</item>
+        <item>@string/animation_scale4</item>
+        <item>@string/animation_scale5</item>
+        <item>@string/animation_scale6</item>
+        <item>@string/animation_scale7</item>
+    </string-array>
+
+    <!-- Values for transition animation scale preference. -->
+    <string-array name="transition_animation_scale_values" translatable="false">
+        <item>0</item>
+        <item>.25</item>
+        <item>.5</item>
+        <item>.75</item>
+        <item>1</item>
+        <item>1.25</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+
+    <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
+    <string-array name="animator_duration_scale_entries">
+        <item>@string/animation_scale0</item>
+        <item>@string/animation_scale1</item>
+        <item>@string/animation_scale2</item>
+        <item>@string/animation_scale8</item>
+        <item>@string/animation_scale3</item>
+        <item>@string/animation_scale9</item>
+        <item>@string/animation_scale4</item>
+        <item>@string/animation_scale5</item>
+        <item>@string/animation_scale6</item>
+        <item>@string/animation_scale7</item>
+    </string-array>
+
+    <!-- Values for animator duration scale preference. -->
+    <string-array name="animator_duration_scale_values" translatable="false">
+        <item>0</item>
+        <item>.25</item>
+        <item>.5</item>
+        <item>.75</item>
+        <item>1</item>
+        <item>1.25</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
     </string-array>
 
 </resources>
